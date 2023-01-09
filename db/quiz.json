@@ -1,0 +1,57 @@
+[
+  {
+    "id": 0,
+    "question": "Aplikasi microsoft office yang sering digunakan untuk multimedia interaktif yaitu...",
+    "options": [
+      { "id": 0, "option": "Office Power Point" },
+      { "id": 1, "option": "Word" },
+      { "id": 2, "option": "Notepad" },
+      { "id": 3, "option": "Outlook" }
+    ],
+    "answer": 0
+  },
+  {
+    "id": 1,
+    "question": "Berikut ini contoh multimedia interaktif, kecuali...",
+    "options": [
+      { "id": 0, "option": "Televisi" },
+      { "id": 1, "option": "Aplikasi GOJEK" },
+      { "id": 2, "option": "Majalah online" },
+      { "id": 3, "option": "Facebook" }
+    ],
+    "answer": 1
+  },
+  {
+    "id": 2,
+    "question": "Tombol yang digunakan untuk menjalankan Flash yang dibuat adalah...",
+    "options": [
+      { "id": 0, "option": "Enter" },
+      { "id": 1, "option": "Shift + Enter" },
+      { "id": 2, "option": "Ctrl + Enter" },
+      { "id": 3, "option": "Spasi + Enter" }
+    ],
+    "answer": 2
+  },
+  {
+    "id": 3,
+    "question": "Default untuk penyimpanan file dari software flash yaitu...",
+    "options": [
+      { "id": 0, "option": "Cdr" },
+      { "id": 1, "option": "Fla" },
+      { "id": 2, "option": "Swf" },
+      { "id": 3, "option": "Avi" }
+    ],
+    "answer": 1
+  },
+  {
+    "id": 4,
+    "question": "File yang terbentuk ketika akan merekam tugas Flash berektensi...",
+    "options": [
+      { "id": 0, "option": "Cdr" },
+      { "id": 1, "option": "Fla" },
+      { "id": 2, "option": "Swf" },
+      { "id": 3, "option": "Avi" }
+    ],
+    "answer": 2
+  }
+]

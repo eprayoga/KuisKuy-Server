@@ -8,6 +8,7 @@ const flash = require("connect-flash");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var categoryRouter = require("./app/category/router");
+var userRouter = require("./app/user/router");
 
 const authRouter = require("./app/auth/router");
 
@@ -31,6 +32,7 @@ app.use("/category", categoryRouter);
 
 // api
 app.use(`${URL}/auth`, authRouter);
+app.use(`${URL}/user`, userRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
