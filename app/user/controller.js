@@ -8,7 +8,7 @@ module.exports = {
   landingPage: async (req, res) => {
     try {
       const quiz = await Quiz.find().select(
-        "_id kuisName question banner questions"
+        "_id kuisName banner questions type"
       );
       res.status(200).json({
         data: {
@@ -36,6 +36,15 @@ module.exports = {
           quiz: quiz,
         },
       });
+    } catch (err) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
+
+  category: async (req, res) => {
+    try {
+      const category = await Category.find();
+      res.status(200).json({ data: category });
     } catch (err) {
       res.status(500).json({ message: err.message || `Internal server error` });
     }

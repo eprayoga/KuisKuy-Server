@@ -7,10 +7,12 @@ const {
   createCategory,
   landingPage,
   detailPage,
+  category,
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
 router.get("/:id/detail", detailPage);
+router.get("/category", category);
 router.post("/category/create", createCategory);
 router.post(
   "/quiz/create",

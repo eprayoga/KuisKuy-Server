@@ -1,57 +1,57 @@
 [
   {
     "id": 0,
-    "question": "Aplikasi microsoft office yang sering digunakan untuk multimedia interaktif yaitu...",
+    "question": "Sebuah instruksi atau kalimat perintah dalam bahasa pemrograman yang akan dieksekusi oleh komputer disebut...",
     "options": [
-      { "id": 0, "option": "Office Power Point" },
-      { "id": 1, "option": "Word" },
-      { "id": 2, "option": "Notepad" },
-      { "id": 3, "option": "Outlook" }
-    ],
-    "answer": 0
-  },
-  {
-    "id": 1,
-    "question": "Berikut ini contoh multimedia interaktif, kecuali...",
-    "options": [
-      { "id": 0, "option": "Televisi" },
-      { "id": 1, "option": "Aplikasi GOJEK" },
-      { "id": 2, "option": "Majalah online" },
-      { "id": 3, "option": "Facebook" }
+      { "id": 0, "option": "Program" },
+      { "id": 1, "option": "Statement" },
+      { "id": 2, "option": "Syntaks" },
+      { "id": 3, "option": "Scratch" }
     ],
     "answer": 1
   },
   {
-    "id": 2,
-    "question": "Tombol yang digunakan untuk menjalankan Flash yang dibuat adalah...",
+    "id": 1,
+    "question": "Jika kita ingin menulis lebih dari satu statement dalam satu baris pada bahasa Python, maka kita harus memisahkan antar statementnya dengan menggunakan tanda...",
     "options": [
-      { "id": 0, "option": "Enter" },
-      { "id": 1, "option": "Shift + Enter" },
-      { "id": 2, "option": "Ctrl + Enter" },
-      { "id": 3, "option": "Spasi + Enter" }
+      { "id": 0, "option": "Koma" },
+      { "id": 1, "option": "Spasi" },
+      { "id": 2, "option": "Petik" },
+      { "id": 3, "option": "Titik-Koma" }
     ],
-    "answer": 2
+    "answer": 3
+  },
+  {
+    "id": 2,
+    "question": "Penulisan String dalam pemrograman biasanya diawali dan diakhiri dengan tanda...",
+    "options": [
+      { "id": 0, "option": "Petik" },
+      { "id": 1, "option": "Spasi" },
+      { "id": 2, "option": "Koma" },
+      { "id": 3, "option": "Titiik-Koma" }
+    ],
+    "answer": 0
   },
   {
     "id": 3,
-    "question": "Default untuk penyimpanan file dari software flash yaitu...",
+    "question": "Penulisan case pada python yang menggunakan tanda strip atau dash sebagai pemisah antar kata adalah...",
     "options": [
-      { "id": 0, "option": "Cdr" },
-      { "id": 1, "option": "Fla" },
-      { "id": 2, "option": "Swf" },
-      { "id": 3, "option": "Avi" }
+      { "id": 0, "option": "All Caps Case" },
+      { "id": 1, "option": "Kebab Case" },
+      { "id": 2, "option": "Kernel Case" },
+      { "id": 3, "option": "Snake Case" }
     ],
     "answer": 1
   },
   {
     "id": 4,
-    "question": "File yang terbentuk ketika akan merekam tugas Flash berektensi...",
+    "question": "Tipe data pada Python yang merupakan bilangan bulat disebut...",
     "options": [
-      { "id": 0, "option": "Cdr" },
-      { "id": 1, "option": "Fla" },
-      { "id": 2, "option": "Swf" },
-      { "id": 3, "option": "Avi" }
+      { "id": 0, "option": "Integer" },
+      { "id": 1, "option": "Boolean" },
+      { "id": 2, "option": "Float" },
+      { "id": 3, "option": "Biner" }
     ],
-    "answer": 2
+    "answer": 0
   }
 ]
