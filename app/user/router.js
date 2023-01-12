@@ -8,6 +8,7 @@ const {
   landingPage,
   detailPage,
   category,
+  storeResult,
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
@@ -19,5 +20,6 @@ router.post(
   multer({ dest: os.tmpdir() }).single("banner"),
   createQuiz
 );
+router.post("/quiz/store-result", storeResult);
 
 module.exports = router;

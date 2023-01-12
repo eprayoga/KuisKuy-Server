@@ -1,5 +1,6 @@
 const Quiz = require("../quiz/model");
 const Category = require("../category/model");
+const QuizHistory = require("../quiz_history/model");
 const path = require("path");
 const fs = require("fs");
 const config = require("../../config");
@@ -115,6 +116,30 @@ module.exports = {
 
         res.status(201).json({ data: quiz });
       }
+    } catch (err) {
+      if (err && err.name === "ValidationError") {
+        return res.status(422).json({
+          error: 1,
+          message: err.message,
+          fields: err.errors,
+        });
+      }
+      next(err);
+    }
+  },
+
+  storeResult: async (req, res, next) => {
+    try {
+      const payload = req.body;
+
+      // payload.answers = JSON.parse(payload.answers);
+      // payload.points = JSON.parse(payload.points);
+
+      let quizHistory = new QuizHistory(payload);
+
+      await quizHistory.save();
+
+      res.status(201).json({ data: quizHistory });
     } catch (err) {
       if (err && err.name === "ValidationError") {
         return res.status(422).json({
