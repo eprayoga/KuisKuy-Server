@@ -151,4 +151,49 @@ module.exports = {
       next(err);
     }
   },
+
+  resultQuizPage: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const quizHistory = await QuizHistory.find({ quiz: id })
+        .sort({ totalPoints: -1 })
+        .populate("user")
+        .populate("quiz");
+
+      const quizResult = await QuizHistory.findOne(
+        { quiz: id, user: req.user._id },
+        { sort: { created_at: -1 } }
+      )
+        .select(
+          "_id user quiz answers correctAnswer points totalPoints createdAt"
+        )
+        .populate("user")
+        .populate("quiz");
+
+      const dataQuiz = await Quiz.findOne({ _id: id }).populate("user");
+
+      res.status(200).json({
+        data: {
+          quizHistory,
+          quizResult,
+          dataQuiz,
+        },
+      });
+    } catch (err) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
+
+  getHistoryQuiz: async (req, res) => {
+    try {
+      const historyQuiz = await QuizHistory.find({ user: req.user._id })
+        .populate("quiz")
+        .populate("user");
+
+      res.status(200).json({ data: { historyQuiz } });
+    } catch (err) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
 };

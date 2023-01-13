@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const multer = require("multer");
 const os = require("os");
+const { isLoginUser } = require("../middleware/auth");
 const {
   createQuiz,
   createCategory,
@@ -9,6 +10,8 @@ const {
   detailPage,
   category,
   storeResult,
+  resultQuizPage,
+  getHistoryQuiz,
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
@@ -20,6 +23,8 @@ router.post(
   multer({ dest: os.tmpdir() }).single("banner"),
   createQuiz
 );
+router.get("/quiz/:id/result", isLoginUser, resultQuizPage);
+router.get("/quiz/history", isLoginUser, getHistoryQuiz);
 router.post("/quiz/store-result", storeResult);
 
 module.exports = router;
