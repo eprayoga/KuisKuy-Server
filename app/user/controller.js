@@ -196,4 +196,14 @@ module.exports = {
       res.status(500).json({ message: err.message || `Internal server error` });
     }
   },
+
+  getMyQuiz: async (req, res) => {
+    try {
+      const myQuiz = await Quiz.find({ user: req.user._id }).populate("user");
+
+      res.status(200).json({ data: { myQuiz } });
+    } catch (error) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
 };

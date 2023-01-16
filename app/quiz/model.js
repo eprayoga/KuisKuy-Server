@@ -6,6 +6,9 @@ let quizSchema = mongoose.Schema(
       type: String,
       require: [true, "Nama Kuis harus diisi"],
     },
+    code: {
+      type: String,
+    },
     reference: {
       type: String,
       default: null,
