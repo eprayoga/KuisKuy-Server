@@ -68,6 +68,7 @@ module.exports = {
   createQuiz: async (req, res, next) => {
     try {
       const payload = req.body;
+      payload.user = req.user._id;
       payload.questions = JSON.parse(payload.questions);
 
       if (req.file) {
@@ -108,13 +109,9 @@ module.exports = {
           }
         });
       } else {
-        let quiz = new Quiz(payload);
-
-        await quiz.save();
-
-        delete quiz._doc.password;
-
-        res.status(201).json({ data: quiz });
+        res.status(403).json({
+          message: "Wajib menambahkan banner kuis.",
+        });
       }
     } catch (err) {
       if (err && err.name === "ValidationError") {

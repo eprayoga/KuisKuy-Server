@@ -21,6 +21,7 @@ router.get("/category", category);
 router.post("/category/create", createCategory);
 router.post(
   "/quiz/create",
+  isLoginUser,
   multer({ dest: os.tmpdir() }).single("banner"),
   createQuiz
 );
