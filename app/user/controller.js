@@ -129,9 +129,6 @@ module.exports = {
     try {
       const payload = req.body;
 
-      // payload.answers = JSON.parse(payload.answers);
-      // payload.points = JSON.parse(payload.points);
-
       let quizHistory = new QuizHistory(payload);
 
       await quizHistory.save();
@@ -200,6 +197,23 @@ module.exports = {
 
       res.status(200).json({ data: { myQuiz } });
     } catch (error) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
+
+  historyDetail: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const historyQuiz = await QuizHistory.findOne({
+        user: req.user._id,
+        _id: id,
+      })
+        .populate("quiz")
+        .populate("user");
+
+      res.status(200).json({ data: { historyQuiz } });
+    } catch (err) {
       res.status(500).json({ message: err.message || `Internal server error` });
     }
   },

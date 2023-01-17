@@ -13,6 +13,7 @@ const {
   resultQuizPage,
   getHistoryQuiz,
   getMyQuiz,
+  historyDetail,
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
@@ -29,5 +30,6 @@ router.get("/quiz/:id/result", isLoginUser, resultQuizPage);
 router.post("/quiz/store-result", storeResult);
 router.get("/quiz/history", isLoginUser, getHistoryQuiz);
 router.get("/quiz/myquiz", isLoginUser, getMyQuiz);
+router.get("/quiz/history/:id", isLoginUser, historyDetail);
 
 module.exports = router;
