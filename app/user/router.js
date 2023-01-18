@@ -19,7 +19,7 @@ const {
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
-router.get("/quiz/code", getQuizByCode);
+router.post("/quiz/code", getQuizByCode);
 router.get("/:id/detail", detailPage);
 router.get("/category", category);
 router.post("/category/create", createCategory);

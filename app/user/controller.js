@@ -9,7 +9,7 @@ module.exports = {
   landingPage: async (req, res) => {
     try {
       const quiz = await Quiz.find().select(
-        "_id kuisName banner questions type"
+        "_id kuisName banner questions type code"
       );
       res.status(200).json({
         data: {
@@ -155,13 +155,14 @@ module.exports = {
         .populate("user")
         .populate("quiz");
 
-      const quizResult = await QuizHistory.findOne(
-        { quiz: id, user: req.user._id },
-        { sort: { created_at: -1 } }
-      )
+      const quizResult = await QuizHistory.findOne({
+        quiz: id,
+        user: req.user._id,
+      })
         .select(
           "_id user quiz answers correctAnswer points totalPoints createdAt"
         )
+        .sort({ createdAt: -1 })
         .populate("user")
         .populate("quiz");
 
@@ -182,6 +183,7 @@ module.exports = {
   getHistoryQuiz: async (req, res) => {
     try {
       const historyQuiz = await QuizHistory.find({ user: req.user._id })
+        .sort({ createdAt: -1 })
         .populate("quiz")
         .populate("user");
 
@@ -193,7 +195,9 @@ module.exports = {
 
   getMyQuiz: async (req, res) => {
     try {
-      const myQuiz = await Quiz.find({ user: req.user._id }).populate("user");
+      const myQuiz = await Quiz.find({ user: req.user._id })
+        .sort({ createdAt: -1 })
+        .populate("user");
 
       res.status(200).json({ data: { myQuiz } });
     } catch (err) {
@@ -239,6 +243,7 @@ module.exports = {
   getQuizByCode: async (req, res) => {
     try {
       const { code } = req.body;
+      console.log(code);
       const quiz = await Quiz.findOne({ code: code });
 
       if (!quiz) {
