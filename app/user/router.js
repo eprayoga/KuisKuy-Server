@@ -14,9 +14,12 @@ const {
   getHistoryQuiz,
   getMyQuiz,
   historyDetail,
+  MyQuizDetailPage,
+  getQuizByCode,
 } = require("./controller");
 
 router.get("/landingpage", landingPage);
+router.get("/quiz/code", getQuizByCode);
 router.get("/:id/detail", detailPage);
 router.get("/category", category);
 router.post("/category/create", createCategory);
@@ -31,5 +34,6 @@ router.post("/quiz/store-result", storeResult);
 router.get("/quiz/history", isLoginUser, getHistoryQuiz);
 router.get("/quiz/myquiz", isLoginUser, getMyQuiz);
 router.get("/quiz/history/:id", isLoginUser, historyDetail);
+router.get("/quiz/myquiz/:id", isLoginUser, MyQuizDetailPage);
 
 module.exports = router;

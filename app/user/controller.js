@@ -196,7 +196,7 @@ module.exports = {
       const myQuiz = await Quiz.find({ user: req.user._id }).populate("user");
 
       res.status(200).json({ data: { myQuiz } });
-    } catch (error) {
+    } catch (err) {
       res.status(500).json({ message: err.message || `Internal server error` });
     }
   },
@@ -213,6 +213,43 @@ module.exports = {
         .populate("user");
 
       res.status(200).json({ data: { historyQuiz } });
+    } catch (err) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
+
+  MyQuizDetailPage: async (req, res) => {
+    try {
+      const { id } = req.params;
+
+      const myQuiz = await Quiz.findOne({
+        user: req.user._id,
+        _id: id,
+      }).populate("user");
+      const HistoryQuiz = await QuizHistory.find({ quiz: id })
+        .sort({ totalPoints: -1 })
+        .populate("user");
+
+      res.status(200).json({ data: { myQuiz, HistoryQuiz } });
+    } catch (err) {
+      res.status(500).json({ message: err.message || `Internal server error` });
+    }
+  },
+
+  getQuizByCode: async (req, res) => {
+    try {
+      const { code } = req.body;
+      const quiz = await Quiz.findOne({ code: code });
+
+      if (!quiz) {
+        return res.status(404).json({ message: "Quiz tidak ditemukan.!" });
+      }
+
+      res.status(200).json({
+        data: {
+          quiz: quiz,
+        },
+      });
     } catch (err) {
       res.status(500).json({ message: err.message || `Internal server error` });
     }
