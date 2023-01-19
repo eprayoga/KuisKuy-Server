@@ -8,9 +8,10 @@ const config = require("../../config");
 module.exports = {
   landingPage: async (req, res) => {
     try {
-      const quiz = await Quiz.find().select(
-        "_id kuisName banner questions type code"
-      );
+      const quiz = await Quiz.find()
+        .select("_id kuisName banner questions type code category user")
+        .populate("category")
+        .populate("user");
       res.status(200).json({
         data: {
           quiz: quiz,
